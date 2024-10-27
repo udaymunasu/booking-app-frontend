@@ -1,0 +1,27 @@
+<div class="dashboard">
+    <div class="carousel">
+        <div class="carousel-item" *ngFor="let slide of carouselImages">
+            <img [src]="slide.image" alt="{{slide.title}}" />
+            <div class="carousel-caption">
+                <h5>{{slide.title}}</h5>
+                <p>{{slide.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search by location..." [(ngModel)]="searchTerm" />
+    </div>
+
+    <div class="card-container">
+        <div class="card" *ngFor="let room of rooms">
+            <img [src]="room.image" alt="{{room.name}}" class="room-image" />
+            <div class="card-content">
+                <h3>{{room.name}}</h3>
+                <p>{{room.description}}</p>
+                <p><strong>Price:</strong> ${{room.price}}</p>
+                <button class="btn btn-primary">View Details</button>
+            </div>
+        </div>
+    </div>
+</div>

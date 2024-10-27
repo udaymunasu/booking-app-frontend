@@ -75,6 +75,9 @@
               "browserTarget": "hotelBookingSystem:build:development"
             }
           },
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -103,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "97b28437-59ba-4536-821b-9a581bfef5fe"
   }
 }
