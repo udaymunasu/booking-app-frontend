@@ -13,13 +13,13 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCustomer();
+    // this.getCustomer();
   }
 
-  getCustomer() {
-    this.roomSrv.getAllCustomers().subscribe((res:any) => {
-      this.customerList =  res.data;
-    })
-  }
+  // getCustomer() {
+  //   this.roomSrv.getAllCustomers().subscribe((res:any) => {
+  //     this.customerList =  res.data;
+  //   })
+  // }
 
 }

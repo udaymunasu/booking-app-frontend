@@ -1,27 +1,46 @@
 <div class="dashboard">
-    <div class="carousel">
-        <div class="carousel-item" *ngFor="let slide of carouselImages">
-            <img [src]="slide.image" alt="{{slide.title}}" />
-            <div class="carousel-caption">
-                <h5>{{slide.title}}</h5>
-                <p>{{slide.description}}</p>
+    <div class="carousel" (mouseenter)="pause()" (mouseleave)="start()">
+        <div class="carousel-inner" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+            <div class="carousel-item" *ngFor="let slide of carouselImages">
+                <img [src]="slide.image" alt="{{slide.title}}" />
+                <div class="carousel-caption">
+                    <h5>{{slide.title}}</h5>
+                    <p>{{slide.description}}</p>
+                </div>
             </div>
         </div>
+        <button class="carousel-control prev" (click)="prevSlide()">&#10094;</button>
+        <button class="carousel-control next" (click)="nextSlide()">&#10095;</button>
     </div>
+
+
+
 
     <div class="search-box">
         <input type="text" placeholder="Search by location..." [(ngModel)]="searchTerm" />
+        <input type="date" [(ngModel)]="selectedDate" />
+        <button class="btn btn-primary" (click)="filterHotels()">Filter</button>
     </div>
 
     <div class="card-container">
-        <div class="card" *ngFor="let room of rooms">
-            <img [src]="room.image" alt="{{room.name}}" class="room-image" />
-            <div class="card-content">
-                <h3>{{room.name}}</h3>
-                <p>{{room.description}}</p>
-                <p><strong>Price:</strong> ${{room.price}}</p>
+        <div class="card" *ngFor="let hotel of filteredHotels">
+            <img [src]="hotel.images[0]" alt="{{ hotel.name }}" class="room-image" />
+            <div class="card-content"  (click)="goToHotelDetails(hotel._id)">
+                <h3>{{ hotel.name }}</h3>
+                <p><strong>Description:</strong> {{ hotel.description }}</p>
+                <p><strong>Location:</strong> {{ hotel.location }}</p>
+                <p><strong>Price per Night:</strong> ${{ hotel.pricePerNight }}</p>
+                <p><strong>Amenities:</strong> {{ hotel.amenities.join(', ') }}</p>
+                <p><strong>Rating:</strong> {{ hotel.rating }} / 5</p>
+                <p><strong>Room Types:</strong></p>
+                <ul>
+                    <li *ngFor="let roomType of hotel.roomTypes">
+                        {{ roomType.type }} - ${{ roomType.price }} (Capacity: {{ roomType.capacity }})
+                    </li>
+                </ul>
                 <button class="btn btn-primary">View Details</button>
             </div>
         </div>
     </div>
+
 </div>

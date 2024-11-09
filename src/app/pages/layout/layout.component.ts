@@ -4,21 +4,27 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
 })
-export class LayoutComponent  {
+export class LayoutComponent {
   loggedUserData: any;
   constructor(private router: Router) {
     const localData = localStorage.getItem('hotelUser');
-    if(localData != null) {
+    if (localData != null) {
       this.loggedUserData = JSON.parse(localData);
     }
   }
 
+  isNavbarOpen = false;
+
+  toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
+
+
   onLogoff() {
     localStorage.removeItem('hotelUser');
     this.loggedUserData = undefined;
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/login');
   }
-
 }

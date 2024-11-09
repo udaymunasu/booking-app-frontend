@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
 .register-form {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -20,8 +19,9 @@
     overflow: hidden;
 }
 
-
 .login {
+    position: absolute;
+    width: 300px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -35,8 +35,12 @@
     color: #fff;
 }
 
+.login .inputBx {
+    position: relative;
+}
 
 .login .inputBx input {
+    position: relative;
     padding: 12px 20px;
     background: transparent;
     border: 2px solid #fff;
@@ -48,7 +52,6 @@
 }
 
 .login .inputBx input[type="submit"] {
-    width: 100%;
     background: #0078ff;
     background: linear-gradient(45deg, #ff357a, #fff172);
     border: none;
@@ -60,13 +63,13 @@
 }
 
 .login .links {
-
+    position: relative;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
     color: #fff;
-    width: 100%;
 }
 
 .login .links a {
@@ -74,12 +77,17 @@
     text-decoration: none;
     font-size: large;
     font-weight: bold;
-    cursor:pointer;
+}
+
+.links a.active {
+    font-weight: bold;
+    /* Style for active link */
+    text-decoration: underline;
+    /* Example styling */
 }
 
 select {
     position: relative;
-    width: 100%;
     padding: 12px 30px 12px 20px;
     /* Adjust padding to control space */
     background: transparent;

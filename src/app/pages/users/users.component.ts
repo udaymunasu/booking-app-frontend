@@ -28,31 +28,31 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  onSaveUser() {
-    this.roomSrv.addUpdateUser(this.userObj).subscribe((res: any) => {
-      if (res.result) {
-        alert('User Created Success');
-        this.getUsers();
-      } else {
-        alert(res.message);
-      }
-    });
-  }
+  // onSaveUser() {
+  //   this.roomSrv.addUpdateUser(this.userObj).subscribe((res: any) => {
+  //     if (res.result) {
+  //       alert('User Created Success');
+  //       this.getUsers();
+  //     } else {
+  //       alert(res.message);
+  //     }
+  //   });
+  // }
   onEdit(data: any) {
     const strObj = JSON.stringify(data);
     this.userObj = JSON.parse(strObj);
   }
-  onDelete(id: number) {
-    const isDelete = confirm('Are you sure Wamt to Delete');
-    if (isDelete) {
-      this.roomSrv.deleteUser(id).subscribe((res: any) => {
-        if (res.result) {
-          alert('User Deleted');
-          this.getUsers();
-        } else {
-          alert(res.message);
-        }
-      });
-    }
-  }
+  // onDelete(id: number) {
+  //   const isDelete = confirm('Are you sure Wamt to Delete');
+  //   if (isDelete) {
+  //     this.roomSrv.deleteUser(id).subscribe((res: any) => {
+  //       if (res.result) {
+  //         alert('User Deleted');
+  //         this.getUsers();
+  //       } else {
+  //         alert(res.message);
+  //       }
+  //     });
+  //   }
+  // }
 }

@@ -1,36 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/dashboard">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" routerLink="/newBooking">New Booking</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" routerLink="/bookings">Bookings</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" routerLink="/rooms">Rooms</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" routerLink="/booking-calender"> Booking Calender</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" routerLink="/customers"> Customers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" routerLink="/users"> Users</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <h6>{{loggedUserData?.userName}}</h6>
-                <button class="btn btn--success" type="button" (click)="onLogoff()">LogOff</button>
-            </form>
+<nav class="custom-navbar">
+    <a class="navbar-brand" routerLink="/dashboard">Home</a>
+    <div class="navbar-nav">
+
+        <div class="nav-item">
+            <a class="nav-link" routerLink="./bookings" routerLinkActive="active-link">My Bookings</a>
         </div>
+
+        <div class="nav-item">
+            <a class="nav-link" routerLink="/createHotel" routerLinkActive="active-link">Create hotel</a>
+        </div>
+
+
+    </div>
+    <div class="user-display">
+        <h6>{{ loggedUserData?.name }}</h6>
+        <button class="btn" type="button" (click)="onLogoff()">LogOff</button>
     </div>
 </nav>
 <router-outlet></router-outlet>

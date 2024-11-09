@@ -7,58 +7,54 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NewBookingComponent } from './pages/new-booking/new-booking.component';
-import { RoomsComponent } from './pages/rooms/rooms.component';
 import { UsersComponent } from './pages/users/users.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { CreateHotelComponent } from './pages/hotels/create-hotel/create-hotel.component';
+import { HotelDetailsComponent } from './pages/hotels/hotel-details/hotel-details.component';
+import { BookingDetailsComponent } from './pages/booking-details/booking-details.component';
 
 const routes: Routes = [
   {
-    path:'',
-    redirectTo:'login',
-    pathMatch:'full'
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path:'login',
-    component:LoginComponent
+    path: 'register',
+    component: RegisterComponent,
   },
   {
-    path:'',
-    component:LayoutComponent,
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: '',
+    component: LayoutComponent,
     children: [
       {
-        path:'dashboard',
-        component:DashboardComponent
+        path: 'dashboard',
+        component: DashboardComponent,
       },
       {
-        path:'rooms',
-        component:RoomsComponent
+        path: 'createHotel',
+        component: CreateHotelComponent,
+      },
+      { path: 'bookings', component: BookingDetailsComponent },
+      { path: ':id', component: HotelDetailsComponent },
+      {
+        path: 'newBooking',
+        component: NewBookingComponent,
       },
       {
-        path:'newBooking',
-        component:NewBookingComponent
+        path: 'bookings',
+        component: BookingListComponent,
       },
-      {
-        path:'bookings',
-        component:BookingListComponent
-      },
-      {
-        path:'booking-calender',
-        component:BookingCalenderComponent
-      },
-      {
-        path:'customers',
-        component:CustomerComponent
-      } ,
-      {
-        path:'users',
-        component:UsersComponent
-      }
-    ]
-  }
-   
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
