@@ -1,0 +1,20 @@
+<nav class="custom-navbar">
+    <a class="navbar-brand" routerLink="/dashboard">Home</a>
+    <div class="navbar-nav">
+
+        <div class="nav-item">
+            <a class="nav-link" routerLink="./bookings" routerLinkActive="active-link">My Bookings</a>
+        </div>
+
+        <div class="nav-item">
+            <a class="nav-link" routerLink="/createHotel" routerLinkActive="active-link">Create hotel</a>
+        </div>
+
+
+    </div>
+    <div class="user-display">
+        <h6>{{ loggedUserData?.name }}</h6>
+        <button class="btn" type="button" (click)="onLogoff()">LogOff</button>
+    </div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,601 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": "7c44",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "role": "admin"
+    }
+  ],
+  "hotels": [
+    {
+      "id": "1",
+      "name": "Hyderabad Grand",
+      "description": "A luxurious hotel with modern amenities.",
+      "location": "Banjara Hills, Hyderabad",
+      "pricePerNight": 350,
+      "amenities": [
+        "Free Wi-Fi",
+        "Swimming Pool",
+        "Gym",
+        "Spa",
+        "Restaurant"
+      ],
+      "images": [
+        "https://res.cloudinary.com/simplotel/image/upload/x_0,y_40,w_1498,h_844,c_crop,q_80,fl_progressive/w_600,h_337,f_auto,c_fit/hotel-hyderabad-grand-shamshabad/HG6A4944_v6gzer",
+        "https://foto.hrsstatic.com/fotos/0/2/600/430/80/000000/http%3A%2F%2Ffoto-origin.hrsstatic.com%2Ffoto%2F9%2F0%2F1%2F5%2F%2Fteaser_901549.jpg/fm4yC8Cq0ldAChE84zFyTQ%3D%3D/360%2C185/6/Hotel_Hyderabad_Grand-Hyderabad-Info-22-901549.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReD5pRu0zJhaBxoTXb322HQDpu-CH5SJJhOw&s"
+      ],
+      "rating": 4.5,
+      "roomTypes": [
+        {
+          "type": "Deluxe",
+          "price": 350,
+          "capacity": 2
+        },
+        {
+          "type": "Suite",
+          "price": 500,
+          "capacity": 4
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Park View Hotel",
+      "description": "A comfortable stay with a view of the park.",
+      "location": "Kukatpally, Hyderabad",
+      "pricePerNight": 200,
+      "amenities": [
+        "Free Wi-Fi",
+        "Air Conditioning",
+        "Restaurant"
+      ],
+      "images": [
+        "https://www.viewparkhotel.com/wp-content/uploads/2023/04/Junior-Suite.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnBHVdYdQVCQB-97kAjgn3ZQ-ehTfkaro9eA&s"
+      ],
+      "rating": 4,
+      "roomTypes": [
+        {
+          "type": "Standard",
+          "price": 200,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Luxury Inn",
+      "description": "A five-star hotel with all luxury facilities.",
+      "location": "Hitech City, Hyderabad",
+      "pricePerNight": 500,
+      "amenities": [
+        "Free Wi-Fi",
+        "Pool",
+        "Restaurant",
+        "Bar",
+        "Spa",
+        "Conference Room"
+      ],
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPHBzSFUtbTN2MFgasQcDnI6pP5eDaLWWtFw&s"
+      ],
+      "rating": 4.7,
+      "roomTypes": [
+        {
+          "type": "Executive Suite",
+          "price": 500,
+          "capacity": 3
+        },
+        {
+          "type": "Presidential Suite",
+          "price": 800,
+          "capacity": 5
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Hyderabad Heritage Hotel",
+      "description": "A heritage hotel with a touch of history.",
+      "location": "Old City, Hyderabad",
+      "pricePerNight": 150,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant",
+        "Cultural Shows",
+        "City Tour"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.2,
+      "roomTypes": [
+        {
+          "type": "Standard",
+          "price": 150,
+          "capacity": 2
+        },
+        {
+          "type": "Deluxe",
+          "price": 250,
+          "capacity": 3
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Tech City Hotel",
+      "description": "A modern hotel located in the heart of Hitech City.",
+      "location": "Hitech City, Hyderabad",
+      "pricePerNight": 220,
+      "amenities": [
+        "Free Wi-Fi",
+        "Business Center",
+        "Restaurant"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4,
+      "roomTypes": [
+        {
+          "type": "Standard",
+          "price": 220,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Shilparamam Resort",
+      "description": "A relaxing resort located near Shilparamam.",
+      "location": "Shilparamam, Hyderabad",
+      "pricePerNight": 180,
+      "amenities": [
+        "Free Wi-Fi",
+        "Swimming Pool",
+        "Restaurant",
+        "Garden"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.3,
+      "roomTypes": [
+        {
+          "type": "Deluxe",
+          "price": 180,
+          "capacity": 2
+        },
+        {
+          "type": "Suite",
+          "price": 300,
+          "capacity": 4
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "The Pearl Hotel",
+      "description": "A hotel with elegant interiors and top-tier services.",
+      "location": "Jubilee Hills, Hyderabad",
+      "pricePerNight": 450,
+      "amenities": [
+        "Free Wi-Fi",
+        "Gym",
+        "Restaurant",
+        "Pool",
+        "Bar"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.8,
+      "roomTypes": [
+        {
+          "type": "Executive",
+          "price": 450,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Ramada Hotel",
+      "description": "A modern hotel offering comfort and luxury.",
+      "location": "Ameerpet, Hyderabad",
+      "pricePerNight": 300,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant",
+        "Gym",
+        "Pool"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.6,
+      "roomTypes": [
+        {
+          "type": "Deluxe",
+          "price": 300,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Comfort Inn",
+      "description": "A budget-friendly hotel with all necessary amenities.",
+      "location": "Secunderabad, Hyderabad",
+      "pricePerNight": 120,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 3.8,
+      "roomTypes": [
+        {
+          "type": "Standard",
+          "price": 120,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Leela Palace Hotel",
+      "description": "An upscale hotel with top-notch facilities.",
+      "location": "Gachibowli, Hyderabad",
+      "pricePerNight": 600,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant",
+        "Pool",
+        "Spa",
+        "Gym"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.9,
+      "roomTypes": [
+        {
+          "type": "Presidential Suite",
+          "price": 600,
+          "capacity": 4
+        },
+        {
+          "type": "Luxury Suite",
+          "price": 800,
+          "capacity": 5
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Novotel Hyderabad",
+      "description": "A modern hotel with a blend of comfort and style.",
+      "location": "Hitech City, Hyderabad",
+      "pricePerNight": 400,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant",
+        "Gym",
+        "Pool",
+        "Business Center"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.4,
+      "roomTypes": [
+        {
+          "type": "Standard",
+          "price": 400,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Taj Krishna",
+      "description": "A luxurious and heritage hotel with rich history.",
+      "location": "Banjara Hills, Hyderabad",
+      "pricePerNight": 550,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant",
+        "Bar",
+        "Gym",
+        "Swimming Pool"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.7,
+      "roomTypes": [
+        {
+          "type": "Deluxe",
+          "price": 550,
+          "capacity": 2
+        },
+        {
+          "type": "Suite",
+          "price": 750,
+          "capacity": 3
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Radisson Blu",
+      "description": "A 5-star hotel with all the luxury you need.",
+      "location": "Gachibowli, Hyderabad",
+      "pricePerNight": 600,
+      "amenities": [
+        "Free Wi-Fi",
+        "Gym",
+        "Spa",
+        "Restaurant",
+        "Conference Room"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.6,
+      "roomTypes": [
+        {
+          "type": "Executive Suite",
+          "price": 600,
+          "capacity": 3
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "The Westin",
+      "description": "An upscale hotel with world-class amenities.",
+      "location": "Kondapur, Hyderabad",
+      "pricePerNight": 650,
+      "amenities": [
+        "Free Wi-Fi",
+        "Gym",
+        "Spa",
+        "Restaurant",
+        "Bar"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.8,
+      "roomTypes": [
+        {
+          "type": "Presidential Suite",
+          "price": 650,
+          "capacity": 4
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "ITC Kohenur",
+      "description": "Luxury and comfort combined in a stunning location.",
+      "location": "Hitech City, Hyderabad",
+      "pricePerNight": 700,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant",
+        "Spa",
+        "Gym",
+        "Pool"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.9,
+      "roomTypes": [
+        {
+          "type": "Luxury Suite",
+          "price": 700,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Grand Kakatiya",
+      "description": "The most popular hotel in the heart of Hyderabad.",
+      "location": "Begumpet, Hyderabad",
+      "pricePerNight": 400,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant",
+        "Bar",
+        "Conference Room"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.5,
+      "roomTypes": [
+        {
+          "type": "Standard",
+          "price": 400,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Holiday Inn Express",
+      "description": "A budget-friendly hotel with modern services.",
+      "location": "Secunderabad, Hyderabad",
+      "pricePerNight": 150,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 3.9,
+      "roomTypes": [
+        {
+          "type": "Standard",
+          "price": 150,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "The Trident",
+      "description": "A top-tier hotel with exceptional service.",
+      "location": "Banjara Hills, Hyderabad",
+      "pricePerNight": 550,
+      "amenities": [
+        "Free Wi-Fi",
+        "Gym",
+        "Spa",
+        "Restaurant",
+        "Conference Room"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.7,
+      "roomTypes": [
+        {
+          "type": "Presidential Suite",
+          "price": 550,
+          "capacity": 3
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Deccan Trails Resort",
+      "description": "A peaceful resort located near the outskirts of Hyderabad.",
+      "location": "Himayat Sagar, Hyderabad",
+      "pricePerNight": 200,
+      "amenities": [
+        "Free Wi-Fi",
+        "Restaurant",
+        "Swimming Pool"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.1,
+      "roomTypes": [
+        {
+          "type": "Standard",
+          "price": 200,
+          "capacity": 2
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Hotel Taj Banjara",
+      "description": "A premium hotel with scenic views of the lake.",
+      "location": "Banjara Hills, Hyderabad",
+      "pricePerNight": 650,
+      "amenities": [
+        "Free Wi-Fi",
+        "Gym",
+        "Spa",
+        "Restaurant",
+        "Swimming Pool"
+      ],
+      "images": [
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+      ],
+      "rating": 4.9,
+      "roomTypes": [
+        {
+          "type": "Luxury Suite",
+          "price": 650,
+          "capacity": 3
+        }
+      ]
+    },
+    {
+      "id": "adc9",
+      "name": "test",
+      "description": "test",
+      "location": "test",
+      "pricePerNight": 0,
+      "amenities": [
+        "Pool"
+      ],
+      "images": [],
+      "rating": 0,
+      "roomTypes": []
+    },
+    {
+      "id": "3228",
+      "name": "test",
+      "description": "testtest",
+      "location": "test",
+      "pricePerNight": 0,
+      "amenities": [],
+      "images": [],
+      "rating": 0,
+      "roomTypes": []
+    },
+    {
+      "id": "cf34",
+      "name": "testing hotel creation local",
+      "description": "testing hotel creation localtesting hotel creation localtesting hotel creation local",
+      "location": "testing hotel creation localtesting hotel creation local",
+      "pricePerNight": 0,
+      "amenities": [
+        "WiFi",
+        "Room Service",
+        "Air Conditioning"
+      ],
+      "images": [
+        "assets/uploads/hotelimages/1731624783351-download (1).jpeg"
+      ],
+      "rating": 0,
+      "roomTypes": []
+    },
+    {
+      "id": "13b8",
+      "name": "test2",
+      "description": "test2test2test2test2test2test2test2test2test2test2test2test2",
+      "location": "",
+      "pricePerNight": 2000,
+      "amenities": [
+        "WiFi",
+        "Room Service"
+      ],
+      "images": [
+        "assets/uploads/hotelimages/1731624882189-scorpio-n-exterior-right-front-three-quarter-75_2.jpeg"
+      ],
+      "rating": 0,
+      "roomTypes": []
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "userId": 1,
+      "hotelId": 1,
+      "date": "2024-01-01"
+    }
+  ]
+}
