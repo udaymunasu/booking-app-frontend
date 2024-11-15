@@ -81,7 +81,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-
   filterHotels(): void {
     this.filteredHotels = this.hotels.filter((hotel) => {
       const matchesLocation = hotel.location
