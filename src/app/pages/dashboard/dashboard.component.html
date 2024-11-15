@@ -1,4 +1,12 @@
 <div class="dashboard">
+
+    <div class="search-box">
+        <input type="text" placeholder="Search by location..." [(ngModel)]="searchTerm" />
+        <input type="date" [(ngModel)]="selectedDate" />
+        <button class="btn btn-primary" (click)="filterHotels()">Filter</button>
+    </div>
+
+
     <div class="carousel" (mouseenter)="pause()" (mouseleave)="start()">
         <div class="carousel-inner" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
             <div class="carousel-item" *ngFor="let slide of carouselImages">
@@ -14,13 +22,6 @@
     </div>
 
 
-
-
-    <div class="search-box">
-        <input type="text" placeholder="Search by location..." [(ngModel)]="searchTerm" />
-        <input type="date" [(ngModel)]="selectedDate" />
-        <button class="btn btn-primary" (click)="filterHotels()">Filter</button>
-    </div>
 
     <div class="card-container">
         <div class="card" *ngFor="let hotel of filteredHotels">
