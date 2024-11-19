@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DBRoomService } from 'src/app/service/db-server';
 import { RoomService } from 'src/app/service/room.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class BookingDetailsComponent implements OnInit {
   errorMessage: string = ''; // Store error message if any
 
   constructor(
-    private bookingService: RoomService,
+    private bookingService: DBRoomService,
+    // private bookingService: RoomService,
     private route: ActivatedRoute
   ) {}
 

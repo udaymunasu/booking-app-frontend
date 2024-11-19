@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
+import { DBRoomService } from 'src/app/service/db-server';
 import { RoomService } from 'src/app/service/room.service';
 
 @Component({
@@ -23,7 +24,10 @@ export class HotelDetailsComponent implements OnInit {
   };
 
   constructor( private route: ActivatedRoute, 
-    private hotelService: RoomService) { }
+    // private hotelService: RoomService,
+    private hotelService: DBRoomService,
+
+  ) { }
 
   ngOnInit(): void {
     this.hotelId = this.route.snapshot.paramMap.get('id');

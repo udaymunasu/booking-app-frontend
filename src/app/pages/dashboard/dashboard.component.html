@@ -1,10 +1,92 @@
 <div class="dashboard">
 
-    <div class="search-box">
-        <input type="text" placeholder="Search by location..." [(ngModel)]="searchTerm" />
-        <input type="date" [(ngModel)]="selectedDate" />
-        <button class="btn btn-primary" (click)="filterHotels()">Filter</button>
-    </div>
+    <div class="header">
+        <div class="headerContainer">
+          <div class="headerList">
+            <div class="headerListItem active">
+              <!-- <FontAwesomeIcon icon={faBed} /> -->
+              <span>Stays</span>
+            </div>
+            <div class="headerListItem">
+              <!-- <FontAwesomeIcon icon={faPlane} /> -->
+              <span>Flights</span>
+            </div>
+            <div class="headerListItem">
+              <!-- <FontAwesomeIcon icon={faCar} /> -->
+              <span>Car rentals</span>
+            </div>
+            <div class="headerListItem">
+              <!-- <FontAwesomeIcon icon={faBed} /> -->
+              <span>Attractions</span>
+            </div>
+            <div class="headerListItem">
+              <!-- <FontAwesomeIcon icon={faTaxi} /> -->
+              <span>Airport taxis</span>
+            </div>
+          </div>
+          <h1 class="headerTitle">A lifetime of discounts? It's Genius.</h1>
+          <p class="headerDesc">
+            Get rewarded for your travels – unlock instant savings of 10% or more
+            with a free Lamabooking account.
+          </p>
+          <button class="headerBtn">Sign in / Register</button>
+          <div class="headerSearch">
+            <div class="headerSearchItem">
+              <!-- <FontAwesomeIcon icon={faBed} class="headerIcon" /> -->
+              <input
+                type="text"
+                placeholder="Where are you going?"
+                class="headerSearchInput"
+              />
+            </div>
+            <div class="headerSearchItem">
+              <!-- <FontAwesomeIcon icon={faCalendarDays} class="headerIcon" /> -->
+              <span class="headerSearchText"></span>
+              <input
+                type="date"
+                id="datePicker"
+                placeholder="Select dates"
+                class="headerSearchInput"
+              />
+              <!-- <DateRange ranges={dates} class="date" /> -->
+            </div>
+            <div class="headerSearchItem">
+              <!-- <FontAwesomeIcon icon={faPerson} class="headerIcon" /> -->
+              <span class="headerSearchText">
+                <!-- <div class="options">
+                  <div class="optionItem">
+                    <span class="optionText">Adult</span>
+                    <div class="optionCounter">
+                      <button class="optionCounterButton">-</button>
+                      <span class="optionCounterNumber">options.adult</span>
+                      <button class="optionCounterButton">+</button>
+                    </div>
+                  </div>
+                  <div class="optionItem">
+                    <span class="optionText">Children</span>
+                    <div class="optionCounter">
+                      <button class="optionCounterButton">-</button>
+                      <span class="optionCounterNumber">options.children</span>
+                      <button class="optionCounterButton">+</button>
+                    </div>
+                  </div>
+                  <div class="optionItem">
+                    <span class="optionText">Room</span>
+                    <div class="optionCounter">
+                      <button class="optionCounterButton">-</button>
+                      <span class="optionCounterNumber">options.room</span>
+                      <button class="optionCounterButton">+</button>
+                    </div>
+                  </div>
+                </div> -->
+              </span>
+            </div>
+            <div class="headerSearchItem">
+              <button class="headerBtn">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     <div class="carousel" (mouseenter)="pause()" (mouseleave)="start()">
@@ -27,8 +109,8 @@
         <div class="card" *ngFor="let hotel of filteredHotels">
             <img class="room-image" alt="Hotel image"[src]="hotel.images" />
 
-            <div class="card-content"  (click)="goToHotelDetails(hotel._id)">
-                <h3>{{ hotel.name }}</h3>
+            <div class="card-content"  (click)="goToHotelDetails(hotel.id)">
+                <h3>{{ hotel?.name }}</h3>
                 <p><strong>Description:</strong> {{ hotel?.description }}</p>
                 <p><strong>Location:</strong> {{ hotel.location }}</p>
                 <p><strong>Price per Night:</strong> ${{ hotel.pricePerNight }}</p>

@@ -1,4 +1,4 @@
-$primary-color: #343a40; // Navbar background color
+$primary-color: #003580; // Navbar background color
 $secondary-color: #007bff; // Button color
 $hover-color: lighten($secondary-color, 10%); // Hover effect color
 $text-color: #ffffff; // Text color
@@ -18,7 +18,7 @@ $spacing: 20px; // Spacing between items
 
     .navbar-brand {
         font-size: 2rem;
-        color: $secondary-color;
+        color: $text-color;
         text-decoration: none;
         font-weight: bold;
         transition: color 0.3s;
