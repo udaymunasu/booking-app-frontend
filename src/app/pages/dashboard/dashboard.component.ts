@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { DummyDataService } from './dashboardservice';
 import { RoomService } from '../../service/room.service';
 import { Router } from '@angular/router';
@@ -16,6 +16,9 @@ export class DashboardComponent implements OnInit {
   hotels: any[] = [];
   selectedDate: string = '';
   filteredHotels: any[] = [];
+  headerHeight: number = 0;  // Variable to store header height
+  private parallaxElement: HTMLElement | null = null;
+
 
   constructor(
     // private hotelService: RoomService,
@@ -24,14 +27,51 @@ export class DashboardComponent implements OnInit {
     private router: Router
   ) {}
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    this.applyParallaxEffect();
+  }
+
+ 
+
   currentIndex = 0; // Start with the first image
   interval: any;
 
   ngOnInit() {
-    this.rooms = this.dummyDataService.getDummyRooms(); // Add this method in your service
+    this.calculateHeaderHeight();  // Call it once on component initialization
+    this.applyParallaxEffect();    this.rooms = this.dummyDataService.getDummyRooms(); // Add this method in your service
     this.carouselImages = this.getCarouselImages();
     this.loadHotels();
     this.start();
+  }
+
+   // Custom parallax effect
+   private applyParallaxEffect(): void {
+    const parallaxElement = document.querySelector('.custom-bg-parallax') as HTMLElement;
+    const scrollPosition = window.scrollY;
+
+    // Adjust parallax speed (higher value means slower movement)
+    const speed = 0.5;
+
+    if (parallaxElement) {
+      parallaxElement.style.transform = `translateY(${scrollPosition * speed}px)`;
+    }
+  }
+
+   
+
+
+  // Listen for window resize to recalculate header height dynamically
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.calculateHeaderHeight();
+  }
+
+  calculateHeaderHeight() {
+    const header = document.querySelector('.header_area') as HTMLElement;
+    if (header) {
+      this.headerHeight = header.offsetHeight;  // Get height of header
+    }
   }
 
   goToHotelDetails(hotelId: number): void {

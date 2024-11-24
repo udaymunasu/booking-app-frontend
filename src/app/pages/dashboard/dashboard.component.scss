@@ -1,8 +1,164 @@
 .dashboard {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  position: absolute;
+  // top: 80px;
 }
+
+section{
+  background-color: unset;
+}
+
+
+.custom-banner-area {
+  position: relative;
+  height: 100vh;
+  /* Full viewport height */
+  overflow: hidden;
+  /* Ensures no content goes outside the boundaries */
+
+  /* Parallax background */
+  .custom-bg-parallax {
+    position: absolute;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../../assets/image/banner_bg.jpg) no-repeat scroll center 0 / cover;
+    opacity: 0.50;
+
+    /* Keep the background behind the content */
+    will-change: transform;
+    /* Optimizing performance for scroll event */
+  }
+
+  /* Content on top of the background */
+  .custom-container {
+    position: relative;
+    z-index: 1;
+    /* Ensures the content stays above the image */
+
+    height: 100%;
+    /* Make sure content fills the entire height */
+    color: white;
+    /* White text color for contrast */
+    text-align: center;
+
+    .custom-banner-content {
+      max-width: 800px;
+      /* Limit the width of the content */
+      margin: 0 auto;
+      padding: 20px;
+
+      h6 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      .custom-theme-btn {
+        margin-top: 20px;
+        padding: 12px 30px;
+        background-color: #ff6f61; /* Custom button color */
+        color: white;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+    }
+  }
+
+
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .custom-banner-content h2 {
+      font-size: 2.5rem;
+    }
+
+    .custom-banner-content p {
+      font-size: 1rem;
+    }
+  }
+}
+
+.custom-hotel-booking-area {
+  background-color: #fff;
+  /* White background for booking area */
+  padding: 50px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .custom-hotel-booking-table {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    .custom-booking-table-item {
+      flex: 1;
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      .custom-form-group {
+        margin-bottom: 20px;
+
+        input,
+        select {
+          width: 100%;
+          padding: 12px 15px;
+          margin: 10px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 1rem;
+          background-color: #fff;
+          box-sizing: border-box;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: #3498db;
+            /* Focus effect */
+            outline: none;
+          }
+        }
+      }
+
+      .custom-book-now-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: #3498db;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #2980b9;
+        }
+      }
+    }
+  }
+}
+
+
+//
 
 .carousel {
   position: relative;
@@ -75,164 +231,6 @@
   }
 }
 
-
-.header {
-  background-color: #003580; // Primary background similar to booking.com
-  color: white;
-  padding: 20px 0;
-
-  .headerContainer {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-
-    .headerList {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-
-      .headerListItem {
-        cursor: pointer;
-        padding: 10px 20px;
-        border-radius: 5px;
-        transition: background 0.3s;
-
-        &:hover {
-          background: #0071c2;
-        }
-
-        &.active {
-          background: #0071c2;
-        }
-
-        span {
-          font-size: 16px;
-          font-weight: 600;
-        }
-      }
-    }
-
-    .headerTitle {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .headerDesc {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    .headerBtn {
-      background-color: #febb02;
-      border: none;
-      color: #003580;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: 600;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-
-      &:hover {
-        background-color: #dba001;
-      }
-    }
-
-    .headerSearch {
-      display: flex;
-      align-items: center;
-      background-color: white;
-      border-radius: 5px;
-      padding: 10px;
-      color: #333;
-      justify-content: space-between;
-      margin: 12px 0;
-
-      .headerSearchItem {
-        display: flex;
-        align-items: center;
-        margin-right: 10px;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        input {
-          border: none;
-          outline: none;
-          width: 100%;
-          padding: 10px;
-          border-radius: 5px;
-          font-size: 14px;
-
-          &::placeholder {
-            color: #999;
-          }
-        }
-
-        .headerSearchText {
-          width: 100%;
-        }
-
-        .options {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-
-          .optionItem {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .optionText {
-              font-size: 14px;
-            }
-
-            .optionCounter {
-              display: flex;
-              align-items: center;
-
-              .optionCounterButton {
-                background-color: #0071c2;
-                color: white;
-                border: none;
-                padding: 5px 10px;
-                cursor: pointer;
-                border-radius: 3px;
-                transition: background 0.3s;
-
-                &:hover {
-                  background-color: #005f99;
-                }
-              }
-
-              .optionCounterNumber {
-                margin: 0 10px;
-                font-size: 16px;
-              }
-            }
-          }
-        }
-      }
-
-      .headerBtn {
-        flex: 0;
-        background-color: #0071c2;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s;
-
-        &:hover {
-          background-color: #005f99;
-        }
-      }
-    }
-  }
-}
 
 
 .card-container {
@@ -313,14 +311,3 @@
 }
 
 // Media Queries for Responsiveness
-@media (max-width: 768px) {
-  .card {
-    width: calc(50% - 20px); // 2 cards in a row for smaller screens
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    width: 100%; // Full width for mobile
-  }
-}

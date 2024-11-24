@@ -6,142 +6,30 @@ $active-color: darken($secondary-color, 20%); // Active link color
 $border-radius: 8px; // Border radius for buttons and links
 $spacing: 20px; // Spacing between items
 
-.custom-navbar {
-    background-color: $primary-color;
-    padding: 15px 25px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    border-bottom: 2px solid darken($primary-color, 10%);
 
-    .navbar-brand {
-        font-size: 2rem;
-        color: $text-color;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s;
+.main-container {
+    position: absolute;
+    width: 100%;
+}
 
-        &:hover {
-            color: $hover-color;
-        }
-    }
+.navbar-brand {
+    font-size: 2rem;
+    color: $text-color;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
 
-    .navbar-nav {
-        display: flex; // Use flexbox to layout the items
-        padding: 0;
-        margin: 0;
-
-        .nav-item {
-            margin-right: $spacing;
-
-            &:last-child {
-                margin-right: 0; // No margin on the last item
-            }
-
-            .nav-link {
-                color: $text-color;
-                text-decoration: none;
-                padding: 12px 20px;
-                border-radius: $border-radius;
-                transition: background-color 0.3s, color 0.3s;
-                position: relative;
-                font-size: 1.1rem;
-
-                &:hover {
-                    background-color: $hover-color;
-                    color: $text-color;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                }
-
-                &::after {
-                    content: '';
-                    display: block;
-                    height: 2px;
-                    width: 0;
-                    background: $hover-color;
-                    transition: width 0.3s;
-                    position: absolute;
-                    bottom: -5px; // Position under the link
-                    left: 50%;
-                    right: 50%;
-                }
-
-                &:hover::after {
-                    width: 100%;
-                    left: 0;
-                    right: 0;
-                }
-
-                &.active-link {
-                    background-color: $active-color; // Active link background color
-                    color: $text-color; // Active link text color
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                }
-            }
-        }
-    }
-
-    .user-display {
-        display: flex;
-        align-items: center;
-
-        h6 {
-            color: $text-color;
-            font-size: 15px;
-            margin: 0px 18px; // Prevent text wrap
-        }
-
-        .btn {
-            background-color: $secondary-color;
-            border: none;
-            padding: 10px 20px;
-            color: $text-color;
-            border-radius: $border-radius;
-            transition: background-color 0.3s, transform 0.2s;
-            font-size: 1rem;
-            font-weight: bold;
-
-            &:hover {
-                background-color: darken($secondary-color, 10%);
-                transform: translateY(-2px); // Slight lift effect on hover
-            }
-
-            &:focus {
-                outline: none; // Remove outline on focus
-                box-shadow: 0 0 0 2px lighten($secondary-color, 40%); // Focus ring
-            }
-        }
+    &:hover {
+        color: $hover-color;
     }
 }
 
-// Media query for smaller screens
-@media (max-width: 768px) {
-    .custom-navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
+// .navbar-collapse {
+//     margin: 24px 0;
+// }
 
-        .navbar-nav {
-            flex-direction: column;
-            margin-top: 10px;
-
-            .nav-item {
-                margin-right: 0;
-                width: 100%;
-
-                .nav-link {
-                    padding: 10px 0;
-                    text-align: left; // Align text to the left
-                }
-            }
-        }
-
-        .user-display {
-            margin-top: 10px;
-            width: 100%;
-            justify-content: space-between;
-        }
-    }
-}
+// .menu_nav {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }

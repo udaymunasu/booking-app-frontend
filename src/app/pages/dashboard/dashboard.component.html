@@ -1,130 +1,104 @@
 <div class="dashboard">
 
-    <div class="header">
-        <div class="headerContainer">
-          <div class="headerList">
-            <div class="headerListItem active">
-              <!-- <FontAwesomeIcon icon={faBed} /> -->
-              <span>Stays</span>
-            </div>
-            <div class="headerListItem">
-              <!-- <FontAwesomeIcon icon={faPlane} /> -->
-              <span>Flights</span>
-            </div>
-            <div class="headerListItem">
-              <!-- <FontAwesomeIcon icon={faCar} /> -->
-              <span>Car rentals</span>
-            </div>
-            <div class="headerListItem">
-              <!-- <FontAwesomeIcon icon={faBed} /> -->
-              <span>Attractions</span>
-            </div>
-            <div class="headerListItem">
-              <!-- <FontAwesomeIcon icon={faTaxi} /> -->
-              <span>Airport taxis</span>
-            </div>
+  <section class="custom-banner-area">
+    <!-- Parallax background -->
+    <div class="custom-bg-parallax"></div>
+
+    <!-- Content on top of the background image -->
+    <div class="custom-container">
+      <div class="custom-banner-content">
+        <h6>Away from monotonous life</h6>
+        <h2>Relax Your Mind</h2>
+        <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You
+          may see some for as low as $.17 each.</p>
+        <a href="#" class="custom-theme-btn">Get Started</a>
+      </div>
+    </div>
+    <!-- Hotel Booking Section -->
+
+  </section>
+
+  <div class="custom-hotel-booking-area">
+    <div class="container">
+      <div class="custom-hotel-booking-table">
+        <!-- Booking Column 1 -->
+        <div class="custom-booking-table-item">
+          <h2>Book<br> Your Room</h2>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="custom-booking-table-item">
+          <div class="custom-form-group">
+            <input type="text" class="form-control" placeholder="Arrival Date" />
           </div>
-          <h1 class="headerTitle">A lifetime of discounts? It's Genius.</h1>
-          <p class="headerDesc">
-            Get rewarded for your travels – unlock instant savings of 10% or more
-            with a free Lamabooking account.
-          </p>
-          <button class="headerBtn">Sign in / Register</button>
-          <div class="headerSearch">
-            <div class="headerSearchItem">
-              <!-- <FontAwesomeIcon icon={faBed} class="headerIcon" /> -->
-              <input
-                type="text"
-                placeholder="Where are you going?"
-                class="headerSearchInput"
-              />
-            </div>
-            <div class="headerSearchItem">
-              <!-- <FontAwesomeIcon icon={faCalendarDays} class="headerIcon" /> -->
-              <span class="headerSearchText"></span>
-              <input
-                type="date"
-                id="datePicker"
-                placeholder="Select dates"
-                class="headerSearchInput"
-              />
-              <!-- <DateRange ranges={dates} class="date" /> -->
-            </div>
-            <div class="headerSearchItem">
-              <!-- <FontAwesomeIcon icon={faPerson} class="headerIcon" /> -->
-              <span class="headerSearchText">
-                <!-- <div class="options">
-                  <div class="optionItem">
-                    <span class="optionText">Adult</span>
-                    <div class="optionCounter">
-                      <button class="optionCounterButton">-</button>
-                      <span class="optionCounterNumber">options.adult</span>
-                      <button class="optionCounterButton">+</button>
-                    </div>
-                  </div>
-                  <div class="optionItem">
-                    <span class="optionText">Children</span>
-                    <div class="optionCounter">
-                      <button class="optionCounterButton">-</button>
-                      <span class="optionCounterNumber">options.children</span>
-                      <button class="optionCounterButton">+</button>
-                    </div>
-                  </div>
-                  <div class="optionItem">
-                    <span class="optionText">Room</span>
-                    <div class="optionCounter">
-                      <button class="optionCounterButton">-</button>
-                      <span class="optionCounterNumber">options.room</span>
-                      <button class="optionCounterButton">+</button>
-                    </div>
-                  </div>
-                </div> -->
-              </span>
-            </div>
-            <div class="headerSearchItem">
-              <button class="headerBtn">Search</button>
-            </div>
+          <div class="custom-form-group">
+            <input type="text" class="form-control" placeholder="Departure Date" />
           </div>
+          <div class="custom-form-group">
+            <select class="wide">
+              <option data-display="Adult">Adult</option>
+              <option value="1">Old</option>
+              <option value="2">Younger</option>
+            </select>
+          </div>
+          <div class="custom-form-group">
+            <select class="wide">
+              <option data-display="Child">Child</option>
+              <option value="1">Child</option>
+            </select>
+          </div>
+          <div class="custom-form-group">
+            <select class="wide">
+              <option data-display="Number of Rooms">Number of Rooms</option>
+              <option value="1">Room 01</option>
+              <option value="2">Room 02</option>
+            </select>
+          </div>
+          <a href="#" class="custom-book-now-btn">Book Now</a>
         </div>
       </div>
-
-
-    <div class="carousel" (mouseenter)="pause()" (mouseleave)="start()">
-        <div class="carousel-inner" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
-            <div class="carousel-item" *ngFor="let slide of carouselImages">
-                <img [src]="slide.image" alt="{{slide.title}}" />
-                <div class="carousel-caption">
-                    <h5>{{slide.title}}</h5>
-                    <p>{{slide.description}}</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control prev" (click)="prevSlide()">&#10094;</button>
-        <button class="carousel-control next" (click)="nextSlide()">&#10095;</button>
     </div>
+  </div>
 
 
 
-    <div class="card-container">
-        <div class="card" *ngFor="let hotel of filteredHotels">
-            <img class="room-image" alt="Hotel image"[src]="hotel.images" />
 
-            <div class="card-content"  (click)="goToHotelDetails(hotel.id)">
-                <h3>{{ hotel?.name }}</h3>
-                <p><strong>Description:</strong> {{ hotel?.description }}</p>
-                <p><strong>Location:</strong> {{ hotel.location }}</p>
-                <p><strong>Price per Night:</strong> ${{ hotel.pricePerNight }}</p>
-                <p><strong>Amenities:</strong> {{ hotel?.amenities?.join(', ') }}</p>
-                <p><strong>Rating:</strong> {{ hotel.rating }} / 5</p>
-                <p><strong>Room Types:</strong></p>
-                <ul>
-                    <li *ngFor="let roomType of hotel.roomTypes">
-                        {{ roomType?.type }} - ${{ roomType?.price }} (Capacity: {{ roomType.capacity }})
-                    </li>
-                </ul>
-                <button class="btn btn-primary">View Details</button>
-            </div>
+  <div class="carousel" (mouseenter)="pause()" (mouseleave)="start()">
+    <div class="carousel-inner" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div class="carousel-item" *ngFor="let slide of carouselImages">
+        <img [src]="slide.image" alt="{{slide.title}}" />
+        <div class="carousel-caption">
+          <h5>{{slide.title}}</h5>
+          <p>{{slide.description}}</p>
         </div>
+      </div>
     </div>
+    <button class="carousel-control prev" (click)="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" (click)="nextSlide()">&#10095;</button>
+  </div>
+
+
+
+  <div class="card-container">
+    <div class="card" *ngFor="let hotel of filteredHotels">
+      <img class="room-image" alt="Hotel image" [src]="hotel.images" />
+
+      <div class="card-content" (click)="goToHotelDetails(hotel.id)">
+        <h3>{{ hotel?.name }}</h3>
+        <p><strong>Description:</strong> {{ hotel?.description }}</p>
+        <p><strong>Location:</strong> {{ hotel.location }}</p>
+        <p><strong>Price per Night:</strong> ${{ hotel.pricePerNight }}</p>
+        <p><strong>Amenities:</strong> {{ hotel?.amenities?.join(', ') }}</p>
+        <p><strong>Rating:</strong> {{ hotel.rating }} / 5</p>
+        <p><strong>Room Types:</strong></p>
+        <ul>
+          <li *ngFor="let roomType of hotel.roomTypes">
+            {{ roomType?.type }} - ${{ roomType?.price }} (Capacity: {{ roomType.capacity }})
+          </li>
+        </ul>
+        <button class="btn btn-primary">View Details</button>
+      </div>
+    </div>
+  </div>
 
 </div>
