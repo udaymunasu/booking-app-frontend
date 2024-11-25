@@ -41,16 +41,20 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     this.startAutoPlay();
   }
 
-   // Custom parallax effect
-   private applyParallaxEffect(): void {
+  private applyParallaxEffect(): void {
     const parallaxElement = document.querySelector('.custom-bg-parallax') as HTMLElement;
-    const scrollPosition = window.scrollY - 80;
-
-    // Adjust parallax speed (higher value means slower movement)
-    const speed = 0.3;
-
+    const headerHeight = 80; // Header height in pixels
+    const scrollPosition = window.scrollY;
+  
+    // Parallax speed factor (higher for more visible effect)
+    const speed = 0.5;
+  
     if (parallaxElement) {
-      parallaxElement.style.transform = `translateY(${scrollPosition * speed}px)`;
+      // Ensure the element doesn't overlap the header
+      const adjustedScroll = Math.max(0, scrollPosition - headerHeight);
+  
+      // Apply parallax effect
+      parallaxElement.style.transform = `translateY(${adjustedScroll * speed}px)`;
     }
   }
 

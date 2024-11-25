@@ -10,11 +10,13 @@ section {
 /* Parallax effect for the background image */
 .custom-bg-parallax {
   position: relative; // Keeps the background and text in place for parallax effect
-  background: url("../../../assets/image/banner_bg.jpg") no-repeat center center /
+  background: url("../../../assets/image/banner_1.jpg") no-repeat center center /
     cover; // Correct image path
   background-attachment: fixed; // Parallax effect (background stays fixed while scrolling)
   height: 70vh; // Full height of the viewport
-  width: 100%; // Ensure it takes full width of the container
+  width: 100%; 
+  transform: translateY(0);
+  will-change: transform;
 
   /* Adding a dark overlay to improve text visibility */
   &::before {
