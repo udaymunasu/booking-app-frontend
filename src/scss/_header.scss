@@ -6,7 +6,7 @@
     width: 100%;
     z-index: 20;
     // height:80px;
-    background-color: #1e6a99;
+    background-color: linear-gradient(135deg, #3a6073, #16222a);
 }
 
 .container {
@@ -82,7 +82,7 @@
 }
 
 .navbar {
-    background: #fff;
+    background: linear-gradient(135deg, #3a6073, #16222a);
     padding: 0px 25px;
 
     .logo_h {
@@ -243,9 +243,7 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     transition: transform 300ms ease, background 300ms ease, -webkit-transform 300ms ease;
 
-    .navbar {
-        background: transparent;
-    }
+
 
     .header-top {
         display: none;

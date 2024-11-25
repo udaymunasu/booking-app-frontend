@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { DummyDataService } from './dashboardservice';
 import { RoomService } from '../../service/room.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { DBRoomService } from 'src/app/service/db-server';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   rooms: any[] = [];
   carouselImages: any[] = []; // Ensure this property is declared
   searchTerm: string = '';
@@ -32,34 +32,72 @@ export class DashboardComponent implements OnInit {
     this.applyParallaxEffect();
   }
 
- 
-
-  currentIndex = 0; // Start with the first image
-  interval: any;
 
   ngOnInit() {
     this.calculateHeaderHeight();  // Call it once on component initialization
     this.applyParallaxEffect();    this.rooms = this.dummyDataService.getDummyRooms(); // Add this method in your service
     this.carouselImages = this.getCarouselImages();
     this.loadHotels();
-    this.start();
+    this.startAutoPlay();
   }
 
    // Custom parallax effect
    private applyParallaxEffect(): void {
     const parallaxElement = document.querySelector('.custom-bg-parallax') as HTMLElement;
-    const scrollPosition = window.scrollY;
+    const scrollPosition = window.scrollY - 80;
 
     // Adjust parallax speed (higher value means slower movement)
-    const speed = 0.5;
+    const speed = 0.3;
 
     if (parallaxElement) {
       parallaxElement.style.transform = `translateY(${scrollPosition * speed}px)`;
     }
   }
 
-   
+   // Use AfterViewInit to add event listeners after the component view is initialized
+   ngAfterViewInit(): void {
+    // Add scroll and resize event listeners
+    window.addEventListener('scroll', this.applyParallaxEffect);
+    window.addEventListener('resize', this.applyParallaxEffect);
+  }
 
+  currentIndex = 0;
+  autoPlayInterval: any;
+
+  // Go to the next slide
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.carouselImages.length;
+    this.updateCarouselPosition();
+  }
+
+  // Go to the previous slide
+  prevSlide() {
+    this.currentIndex = (this.currentIndex - 1 + this.carouselImages.length) % this.carouselImages.length;
+    this.updateCarouselPosition();
+  }
+
+  // Update carousel position by adjusting transform style
+  updateCarouselPosition() {
+    const carouselInner = document.querySelector('.custom-carousel-inner') as HTMLElement;
+    if (carouselInner) {
+      carouselInner.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+    }
+  }
+
+   // Start auto-play
+   startAutoPlay() {
+    this.autoPlayInterval = setInterval(() => {
+      this.nextSlide(); // Automatically go to the next slide
+    }, 3000); // Change every 3 seconds
+  }
+
+  // Stop auto-play
+  stopAutoPlay() {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+    }
+  }
+  
 
   // Listen for window resize to recalculate header height dynamically
   @HostListener('window:resize', ['$event'])
@@ -81,32 +119,12 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.stop();
+    this.stopAutoPlay();
+    window.removeEventListener('scroll', this.applyParallaxEffect);
+    window.removeEventListener('resize', this.applyParallaxEffect);
   }
 
-  start() {
-    this.interval = setInterval(() => {
-      this.nextSlide();
-    }, 3000); // Change slide every 3 seconds
-  }
-
-  stop() {
-    clearInterval(this.interval);
-  }
-
-  nextSlide() {
-    this.currentIndex = (this.currentIndex + 1) % this.carouselImages.length;
-  }
-
-  prevSlide() {
-    this.currentIndex =
-      (this.currentIndex - 1 + this.carouselImages.length) %
-      this.carouselImages.length;
-  }
-
-  pause() {
-    this.stop();
-  }
+  
 
   loadHotels(): void {
     this.hotelService.getAllHotels().subscribe({

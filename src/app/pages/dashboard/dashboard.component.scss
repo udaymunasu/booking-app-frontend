@@ -3,205 +3,247 @@
   // top: 80px;
 }
 
-section{
+section {
   background-color: unset;
 }
 
+/* Parallax effect for the background image */
+.custom-bg-parallax {
+  position: relative; // Keeps the background and text in place for parallax effect
+  background: url("../../../assets/image/banner_bg.jpg") no-repeat center center /
+    cover; // Correct image path
+  background-attachment: fixed; // Parallax effect (background stays fixed while scrolling)
+  height: 70vh; // Full height of the viewport
+  width: 100%; // Ensure it takes full width of the container
 
-.custom-banner-area {
-  position: relative;
-  height: 100vh;
-  /* Full viewport height */
-  overflow: hidden;
-  /* Ensures no content goes outside the boundaries */
-
-  /* Parallax background */
-  .custom-bg-parallax {
+  /* Adding a dark overlay to improve text visibility */
+  &::before {
+    content: "";
     position: absolute;
-    // top: 0;
-    // left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: url(../../../assets/image/banner_bg.jpg) no-repeat scroll center 0 / cover;
-    opacity: 0.50;
-
-    /* Keep the background behind the content */
-    will-change: transform;
-    /* Optimizing performance for scroll event */
+    background: rgba(0, 0, 0, 0.5); // Semi-transparent dark overlay
+    z-index: 1; // Place overlay below text content
   }
+}
 
-  /* Content on top of the background */
-  .custom-container {
-    position: relative;
-    z-index: 1;
-    /* Ensures the content stays above the image */
+/* Container for content overlay */
+.custom-container {
+  position: absolute; // Position it over the background image
+  top: 50%; // Center vertically
+  left: 50%; // Center horizontally
+  transform: translate(-50%, -50%); // Fine-tune positioning to center content
+  text-align: center;
+  color: #fff; // White text to contrast with background image
+  z-index: 2; // Ensure text stays above background image
 
-    height: 100%;
-    /* Make sure content fills the entire height */
-    color: white;
-    /* White text color for contrast */
-    text-align: center;
-
-    .custom-banner-content {
-      max-width: 800px;
-      /* Limit the width of the content */
-      margin: 0 auto;
-      padding: 20px;
-
-      h6 {
-        font-size: 1.5rem;
-        font-weight: 400;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-      }
-
-      h2 {
-        font-size: 4rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-      }
-
-      p {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-        line-height: 1.6;
-      }
-
-      .custom-theme-btn {
-        margin-top: 20px;
-        padding: 12px 30px;
-        background-color: #ff6f61; /* Custom button color */
-        color: white;
-        text-transform: uppercase;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-      }
+  .custom-banner-content {
+    h6 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
     }
-  }
 
-
-  /* Responsiveness */
-  @media (max-width: 768px) {
-    .custom-banner-content h2 {
+    h2 {
       font-size: 2.5rem;
+      margin-bottom: 20px;
     }
 
-    .custom-banner-content p {
+    p {
       font-size: 1rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    a.custom-theme-btn {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
     }
   }
 }
 
 .custom-hotel-booking-area {
-  background-color: #fff;
-  /* White background for booking area */
-  padding: 50px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #89a0c5, #16222a);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
   .custom-hotel-booking-table {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
 
     .custom-booking-table-item {
       flex: 1;
-      background-color: #f7f7f7;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
 
-      .custom-form-group {
-        margin-bottom: 20px;
+      &:first-child {
+        flex: 0 0 25%; /* Allocate space for the title */
+        text-align: left;
+        h2 {
+          font-size: 32px;
+          line-height: 1.2;
+          color: #fff;
+          margin-bottom: 10px;
 
-        input,
-        select {
-          width: 100%;
-          padding: 12px 15px;
-          margin: 10px 0;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 1rem;
-          background-color: #fff;
-          box-sizing: border-box;
-          transition: border-color 0.3s ease;
-
-          &:focus {
-            border-color: #3498db;
-            /* Focus effect */
-            outline: none;
+          span {
+            color: #ffbe0b;
           }
         }
       }
 
-      .custom-book-now-btn {
-        display: inline-block;
-        padding: 12px 30px;
-        background-color: #3498db;
-        color: #fff;
-        border-radius: 5px;
-        text-decoration: none;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        transition: background-color 0.3s ease;
+      &:not(:first-child) {
+        flex: 0 0 75%; /* Allocate space for the form */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px; /* Spacing between inputs */
 
-        &:hover {
-          background-color: #2980b9;
+        .custom-form-group {
+          flex: 1 1 calc(50% - 15px); /* Two items per row with a gap */
+          position: relative;
+
+          input,
+          select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+
+            &:hover,
+            &:focus {
+              border-color: #ffbe0b;
+              background: rgba(255, 255, 255, 0.2);
+            }
+
+            &::placeholder {
+              color: rgba(255, 255, 255, 0.7);
+            }
+          }
+        }
+
+        .custom-book-now-btn {
+          flex: 1 1 100%; /* Full-width for button */
+          margin-top: 10px;
+          padding: 15px 30px;
+          background: #ffbe0b;
+          color: #16222a;
+          font-weight: bold;
+          font-size: 18px;
+          text-transform: uppercase;
+          border-radius: 5px;
+          text-decoration: none;
+          text-align: center;
+          transition: 0.3s;
+
+          &:hover {
+            background: #fff;
+            color: #16222a;
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .custom-booking-table-item {
+      &:not(:first-child) {
+        .custom-form-group {
+          flex: 1 1 100%; /* Single input per row on small screens */
         }
       }
     }
   }
 }
 
-
 //
 
-.carousel {
+.custom-carousel {
   position: relative;
-  overflow: hidden;
-  height: 300px; // Set height for the carousel
-  border-radius: 10px;
-  margin: 18px 0;
+  width: 100%;
+  overflow: hidden; // Ensures only one image is visible at a time
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin: 24px 0;
 
-  .carousel-inner {
+  .custom-carousel-inner {
     display: flex;
-    transition: transform 0.5s ease-in-out; // Smooth transition for sliding
-    height: 100%;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
 
-    .carousel-item {
-      min-width: 100%; // Each item takes full width
-      height: 100%;
-      position: relative;
+  .custom-carousel-item {
+    flex: 0 0 100%; // Each item will take 100% of the container's width
+    position: relative;
+    height: 400px; // Adjust height for your use case
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      img {
-        width: 100%;
-        height: 100%; // Cover the container
-        object-fit: cover;
-        border-radius: 10px; // Rounded corners
+    img {
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover;
+      // image-rendering: -webkit-optimize-contrast; 
+      // image-rendering: crisp-edges; 
+      // image-rendering: pixelated; 
+      // transform: translateZ(
+      //   0
+      // ); 
+      filter:  contrast(110%) saturate(120%); 
+      transition: filter 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02); 
+        filter: contrast(110%) saturate(120%); /* Slight brightness increase for hover */
+      }
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: left;
+      width: 90%;
+      max-width: 80%;
+
+      h5 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: bold;
       }
 
-      .carousel-caption {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        color: #ffffff;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 15px;
-        border-radius: 5px;
-
-        h5 {
-          margin: 0;
-          font-size: 1.5rem;
-        }
-
-        p {
-          margin: 5px 0 0;
-        }
+      p {
+        margin-top: 5px;
+        font-size: 1.2rem;
       }
     }
   }
@@ -210,12 +252,20 @@ section{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-    border: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
     font-size: 2rem;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
+    border: none;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
 
     &.prev {
       left: 10px;
@@ -224,14 +274,26 @@ section{
     &.next {
       right: 10px;
     }
+  }
 
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.7);
+  @media (max-width: 768px) {
+    .custom-carousel-item {
+      height: 250px; // Adjust for smaller screens
+    }
+
+    .carousel-caption {
+      bottom: 10px;
+      left: 10px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .carousel-control {
+      font-size: 1.8rem;
+      padding: 8px;
     }
   }
 }
-
-
 
 .card-container {
   display: flex;

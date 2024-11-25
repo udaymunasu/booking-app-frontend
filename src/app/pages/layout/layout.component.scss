@@ -14,7 +14,7 @@ $spacing: 20px; // Spacing between items
 
 .navbar-brand {
     font-size: 2rem;
-    color: $text-color;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -23,13 +23,3 @@ $spacing: 20px; // Spacing between items
         color: $hover-color;
     }
 }
-
-// .navbar-collapse {
-//     margin: 24px 0;
-// }
-
-// .menu_nav {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-// }
