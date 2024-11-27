@@ -17,6 +17,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CreateHotelComponent } from './pages/hotels/create-hotel/create-hotel.component';
 import { HotelDetailsComponent } from './pages/hotels/hotel-details/hotel-details.component';
 import { BookingDetailsComponent } from './pages/booking-details/booking-details.component';
+import { EditHotelComponent } from './pages/hotels/edit-hotel/edit-hotel.component';
+import { HotelsComponent } from './pages/hotels/hotels/hotels.component';
+import { ImageCarouselComponent } from './pages/components/image-carousel/image-carousel.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { BookingDetailsComponent } from './pages/booking-details/booking-details
     CreateHotelComponent,
     HotelDetailsComponent,
     BookingDetailsComponent,
+    EditHotelComponent,
+    HotelsComponent,
+    ImageCarouselComponent,
    
 
   ],

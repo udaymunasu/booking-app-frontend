@@ -1,0 +1,35 @@
+<div
+  class="carousel-container"
+  (mouseover)="onHover()"
+  (mouseleave)="onMouseLeave()"
+>
+  <div class="carousel-wrapper">
+    <div
+      class="carousel-image"
+      *ngFor="let image of images; let i = index"
+      [ngClass]="{ active: i === currentIndex }"
+      [ngStyle]="{ transform: 'translateX(' + -currentIndex * 100 + '%)' }"
+    >
+      <!-- Bind the current image using images[currentIndex] -->
+      <img [src]="image" alt="Carousel image" class="carousel-image-img" />
+    </div>
+  </div>
+
+  <!-- Prev Button - Always at left, only show if there are multiple images and not the first one -->
+  <button
+    *ngIf="images.length > 1 && currentIndex > 0"
+    (click)="prevImage()"
+    class="prev-btn"
+  >
+    Prev
+  </button>
+
+  <!-- Next Button - Always at right, only show if there are multiple images and not the last one -->
+  <button
+    *ngIf="images.length > 1 && currentIndex < images.length - 1"
+    (click)="nextImage()"
+    class="next-btn"
+  >
+    Next
+  </button>
+</div>

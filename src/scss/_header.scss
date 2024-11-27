@@ -91,6 +91,7 @@
 
     .menu_nav {
         .nav-item {
+            cursor: pointer;
             .nav-link {
                 font: 500 12px/80px $pop;
                 color: #fff;
@@ -99,16 +100,19 @@
                 display: flex;
                 // line-height: 36px;
 
+                &.active-link {
+                    color: $light_blue;
+                }
+
                 &:after {
                     display: none;
                 }
             }
 
             &:hover,
-            &.active {
-                .nav-link {
-                    color: $light_blue;
-                }
+   
+            &.active-link {
+                color: $light_blue;
             }
 
             &.submenu {
@@ -201,7 +205,7 @@
             }
 
             &+li {
-
+                color: #fff;
                 margin-left: 30px;
                 display: flex;
                 flex-direction: row;
@@ -220,6 +224,7 @@
 
     .menu_nav {
         .nav-item {
+            color: #fff;
             .nav-link {
                 line-height: 60px;
                 color: #fff;

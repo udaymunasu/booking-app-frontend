@@ -12,6 +12,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CreateHotelComponent } from './pages/hotels/create-hotel/create-hotel.component';
 import { HotelDetailsComponent } from './pages/hotels/hotel-details/hotel-details.component';
 import { BookingDetailsComponent } from './pages/booking-details/booking-details.component';
+import { HotelsComponent } from './pages/hotels/hotels/hotels.component';
+import { EditHotelComponent } from './pages/hotels/edit-hotel/edit-hotel.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,11 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: 'all-hotels',
+        component: HotelsComponent,
+      },
+      { path: 'edit-hotel/:id', component: EditHotelComponent },
+      {
         path: 'dashboard',
         component: DashboardComponent,
       },
@@ -49,6 +56,7 @@ const routes: Routes = [
         path: 'bookings',
         component: BookingListComponent,
       },
+      
     ],
   },
 ];

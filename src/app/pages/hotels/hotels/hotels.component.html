@@ -1,0 +1,27 @@
+<table border="1" style="width: 100%; text-align: left;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Price Per Night</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of hotels">
+        <td *ngIf="editingHotel?.id !== hotel.id">{{ hotel.name }}</td>
+        <td *ngIf="editingHotel?.id === hotel.id">
+          <input [(ngModel)]="editingHotel.name" />
+        </td>
+        <td>{{ hotel.description }}</td>
+        <td>{{ hotel.location }}</td>
+        <td>{{ hotel.pricePerNight }}</td>
+        <td>
+          <button [routerLink]="['/edit-hotel', hotel.id]">Edit</button>
+          <button *ngIf="editingHotel?.id === hotel.id" (click)="saveChanges()">Save</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

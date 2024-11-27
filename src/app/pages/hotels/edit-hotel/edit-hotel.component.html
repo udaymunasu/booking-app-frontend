@@ -1,0 +1,68 @@
+<div class="container">
+  <h2>Edit Hotel</h2>
+  <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+    <!-- Hotel Name -->
+    <label for="name">Hotel Name:</label>
+    <input id="name" formControlName="name" required />
+
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      required
+    ></textarea>
+
+    <!-- Location -->
+    <label for="location">Location:</label>
+    <input id="location" formControlName="location" required />
+
+    <!-- Price per Night -->
+    <label for="pricePerNight">Price per Night:</label>
+    <input
+      id="pricePerNight"
+      type="number"
+      formControlName="pricePerNight"
+      required
+    />
+
+    <!-- Amenities -->
+    <label>Choose Amenities:</label>
+    <div>
+      <label *ngFor="let amenity of amenitiesList">
+        <input
+          type="checkbox"
+          [value]="amenity"
+          (change)="onAmenitiesChange(amenity, $event)"
+          [checked]="hotelForm.get('amenities')?.value.includes(amenity)"
+        />
+        {{ amenity }}
+      </label>
+    </div>
+
+    <!-- Images -->
+    <label for="images">Images:</label>
+    <input
+      type="file"
+      id="images"
+      (change)="onImageSelected($event)"
+      accept="image/*"
+    />
+    <small>Select multiple images.</small>
+
+    <!-- Selected Images Preview -->
+    <div class="image-preview" *ngIf="selectedImages.length > 0">
+      <h3>Image Previews:</h3>
+      <div>
+        <img
+          *ngFor="let image of selectedImages"
+          [src]="image"
+          alt="Selected Image"
+        />
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Save Changes</button>
+  </form>
+</div>

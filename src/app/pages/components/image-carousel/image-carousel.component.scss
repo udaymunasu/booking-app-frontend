@@ -1,0 +1,64 @@
+/* Base Styles for Carousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Maximum width for the carousel */
+  margin: 0 auto; /* Center the carousel */
+  overflow: hidden;
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease; /* Apply smooth transition for the images */
+}
+
+.carousel-image {
+  width: 100%;
+  height: 300px; /* Set a fixed height for the images */
+  text-align: center;
+  position: relative;
+}
+
+.carousel-image-img {
+  width: 100%; /* Make the image fill the container's width */
+  height: 100%; /* Make the image fill the container's height */
+  object-fit: cover; /* Ensures the image maintains aspect ratio and covers the container */
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+/* Buttons container */
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center the button */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Prev button - Position at left */
+.prev-btn {
+  left: 10px;
+}
+
+/* Next button - Position at right */
+.next-btn {
+  right: 10px;
+}
+
+/* Disabled state for buttons */
+button:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}

@@ -160,21 +160,19 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       {
         title: 'Welcome to Our Hotel',
         description: 'Experience luxury and comfort like never before.',
-        image:
-          'https://pix8.agoda.net/hotelImages/900/90085/90085_121013231939630.jpg?ca=0&ce=1&s=375x',
+        image: '/assets/image/carousel/carousel_1.jpg',
       },
       {
         title: 'Relax and Unwind',
         description: 'Discover the ultimate relaxation at our spa.',
-        image:
-          'https://pix8.agoda.net/hotelImages/90085/-1/02b63308213c05ddafea555b70c86906.jpg?ca=13&ce=1&s=375x',
+        image: '/assets/image/carousel/carousel_2.jpg',
       },
       {
         title: 'Dine in Style',
         description: 'Enjoy exquisite cuisine at our restaurant.',
-        image:
-          'https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/146688256.jpg?k=76751a7079f3c88baa3296f75b43da89dddea2debb474464dc30a26d2a1a7647&o=&s=375x',
+        image: '/assets/image/carousel/carousel_3.jpg',
       },
     ];
   }
+  
 }

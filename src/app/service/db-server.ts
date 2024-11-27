@@ -88,10 +88,14 @@ export class DBRoomService {
     return this.http.post(this.jsonServerUrl, data);
   }
 
-  updateHotel(hotelId: string, data: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/hotels/${hotelId}`, data);
-  }
 
+  getHotelById(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/hotels/${id}`);
+  }
+  
+  updateHotel(id: string, hotel: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, hotel);
+  }
   deleteHotel(hotelId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/hotels/${hotelId}`);
   }
