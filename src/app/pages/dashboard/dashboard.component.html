@@ -91,6 +91,18 @@
     </button>
   </div>
 
+  <h2 class="section-title">Top Destinations in Hyderabad</h2>
+
+  <div class="destination-grid">
+    <div *ngFor="let destination of topDestinationsInHyderabad" class="destination-item">
+      <img [src]="destination.imageUrl" [alt]="destination.name" class="destination-image" />
+      <div class="destination-info">
+        <h3>{{ destination.name }}</h3>
+        <p>{{ destination.description }}</p>
+      </div>
+    </div>
+  </div>
+
   <div class="card-container">
     <div class="card" *ngFor="let hotel of filteredHotels">
       <app-image-carousel  [images]="hotel.images" [autoSlideInterval]="5000"></app-image-carousel>

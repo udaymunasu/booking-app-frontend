@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   headerHeight: number = 0;  // Variable to store header height
   private parallaxElement: HTMLElement | null = null;
 
+  topDestinationsInHyderabad: any[] = [];
+
 
   constructor(
     // private hotelService: RoomService,
@@ -37,6 +39,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     this.calculateHeaderHeight();  // Call it once on component initialization
     this.applyParallaxEffect();    this.rooms = this.dummyDataService.getDummyRooms(); // Add this method in your service
     this.carouselImages = this.getCarouselImages();
+    this.dummyDataService.getTopDestinations().subscribe((destinations) => {
+      this.topDestinationsInHyderabad = destinations;
+    });
     this.loadHotels();
     this.startAutoPlay();
   }

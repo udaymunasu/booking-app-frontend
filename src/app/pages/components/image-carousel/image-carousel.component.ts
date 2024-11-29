@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-image-carousel',
@@ -6,38 +6,36 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./image-carousel.component.scss'],
 })
 export class ImageCarouselComponent implements OnInit {
+  @Input() width: string = '100%'; // Default to full width
+  @Input() height: string = '300px'; // Default height
+  @Input() autoSlideInterval: number = 3000; // Slide interval in milliseconds
   @Input() images: string[] = []; // Array of image URLs
-  @Input() autoSlideInterval: number = 3000; // Interval for auto-sliding (default is 3 seconds)
 
-  currentIndex: number = 0; // Current index for image tracking
-  private slideInterval: any; // Interval for auto-sliding
-  isHovered: boolean = false; // Hover state to stop auto-slide
+  // images: string[] = ['assets/image1.jpg', 'assets/image2.jpg', 'assets/image3.jpg'];
+  currentIndex: number = 0;
+  slideInterval: any;
+  isHovered: boolean = false;
 
   ngOnInit(): void {
-    // Ensure there are images to slide
-    if (this.images.length > 0) {
-      this.startAutoSlide();
-    }
+    this.startAutoSlide();
   }
 
-  ngOnDestroy(): void {
-    // Cleanup the auto-slide interval when component is destroyed
-    if (this.slideInterval) {
-      clearInterval(this.slideInterval);
-    }
-  }
-
-  // Navigate to the previous image with smooth transition
-  prevImage(): void {
-    this.currentIndex = (this.currentIndex === 0) ? this.images.length - 1 : this.currentIndex - 1;
-  }
-
-  // Navigate to the next image with smooth transition
   nextImage(): void {
-    this.currentIndex = (this.currentIndex === this.images.length - 1) ? 0 : this.currentIndex + 1;
+    if (this.currentIndex < this.images.length - 1) {
+      this.currentIndex++;
+    } else {
+      this.currentIndex = 0; // Loop back to the first image
+    }
   }
 
-  // Start auto-sliding of images
+  prevImage(): void {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    } else {
+      this.currentIndex = this.images.length - 1; // Loop back to the last image
+    }
+  }
+
   startAutoSlide(): void {
     this.slideInterval = setInterval(() => {
       if (!this.isHovered) {
@@ -46,15 +44,15 @@ export class ImageCarouselComponent implements OnInit {
     }, this.autoSlideInterval);
   }
 
-  // Stop auto-sliding when hovering over the carousel
-  onHover(): void {
-    this.isHovered = true;
-    if (this.slideInterval) {
-      clearInterval(this.slideInterval);
-    }
+  stopAutoSlide(): void {
+    clearInterval(this.slideInterval);
   }
 
-  // Resume auto-sliding when mouse leaves the carousel
+  onHover(): void {
+    this.isHovered = true;
+    this.stopAutoSlide();
+  }
+
   onMouseLeave(): void {
     this.isHovered = false;
     this.startAutoSlide();

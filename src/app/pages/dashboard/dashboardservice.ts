@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -61,5 +62,42 @@ export class DummyDataService {
 
   getDummyRooms() {
     return this.generateRooms();
+  }
+
+  getTopDestinations(): Observable<any[]> {
+    const destinations: any[] = [
+      {
+        name: 'Charminar',
+        imageUrl: 'assets/destinations/charminar.jpg',
+        description: 'The iconic 16th-century mosque with impressive architecture.'
+      },
+      {
+        name: 'Golconda Fort',
+        imageUrl: 'assets/destinations/golconda.jpg',
+        description: 'A massive fortress with a rich history and stunning views.'
+      },
+      {
+        name: 'Hussain Sagar Lake',
+        imageUrl: 'assets/destinations/hussainsagar.jpg',
+        description: 'A picturesque lake with a famous Buddha statue.'
+      },
+      {
+        name: 'Ramoji Film City',
+        imageUrl: 'assets/destinations/ramoji.jpg',
+        description: 'The world’s largest integrated film studio complex.'
+      },
+      {
+        name: 'Birla Mandir',
+        imageUrl: 'assets/destinations/birlamandir.jpg',
+        description: 'A beautiful white marble temple overlooking the city.'
+      },
+      {
+        name: 'Chowmahalla Palace',
+        imageUrl: 'assets/destinations/chowmahalla.jpg',
+        description: 'A stunning palace complex with rich heritage and architecture.'
+      }
+    ];
+
+    return of(destinations);  // Return the static data as an Observable
   }
 }
