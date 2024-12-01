@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { DummyDataService } from './dashboardservice';
 import { RoomService } from '../../service/room.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { DBRoomService } from 'src/app/service/db-server';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
+export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
   rooms: any[] = [];
   carouselImages: any[] = []; // Ensure this property is declared
   searchTerm: string = '';
@@ -20,7 +20,11 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   private parallaxElement: HTMLElement | null = null;
 
   topDestinationsInHyderabad: any[] = [];
-
+  gridStyles = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gap: '16px',
+  };
 
   constructor(
     // private hotelService: RoomService,
@@ -35,6 +39,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
+
   ngOnInit() {
     this.calculateHeaderHeight();  // Call it once on component initialization
     this.applyParallaxEffect();    this.rooms = this.dummyDataService.getDummyRooms(); // Add this method in your service
@@ -44,6 +49,27 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     });
     this.loadHotels();
     this.startAutoPlay();
+    this.topDestinationsInHyderabad.forEach(destination => {
+      destination.styles = this.getDynamicImageStyles();  // Store precomputed styles in the destination object
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['topDestinationsInHyderabad']) {
+      this.getDynamicImageStyles()
+    }
+  }
+
+  getDynamicImageStyles() {
+    // Dynamic styles for height and width
+    const randomHeight = Math.floor(Math.random() * 250) + 200; // Height between 200px and 450px
+    const randomWidth = Math.floor(Math.random() * 200) + 200; // Width between 200px and 400px
+
+    return {
+      height: `${randomHeight}px`,
+      width: `${randomWidth}px`,
+      objectFit: 'cover',
+    };
   }
 
   private applyParallaxEffect(): void {
@@ -52,7 +78,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     const scrollPosition = window.scrollY;
   
     // Parallax speed factor (higher for more visible effect)
-    const speed = 0.5;
+    const speed = 0.3;
   
     if (parallaxElement) {
       // Ensure the element doesn't overlap the header

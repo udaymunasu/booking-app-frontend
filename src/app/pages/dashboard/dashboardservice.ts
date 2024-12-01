@@ -68,32 +68,32 @@ export class DummyDataService {
     const destinations: any[] = [
       {
         name: 'Charminar',
-        imageUrl: 'assets/destinations/charminar.jpg',
+        imageUrl: 'https://tse2.mm.bing.net/th?id=OIP.wodFHZqy4cPbY7BOgqkckgHaFj&pid=Api&P=0&h=180',
         description: 'The iconic 16th-century mosque with impressive architecture.'
       },
       {
         name: 'Golconda Fort',
-        imageUrl: 'assets/destinations/golconda.jpg',
+        imageUrl: 'https://assets-news.housing.com/news/wp-content/uploads/2020/11/02184143/Everything-you-need-to-know-about-Golconda-Fort-FB-1200x700-compressed.jpg',
         description: 'A massive fortress with a rich history and stunning views.'
       },
       {
         name: 'Hussain Sagar Lake',
-        imageUrl: 'assets/destinations/hussainsagar.jpg',
+        imageUrl: 'https://4.bp.blogspot.com/_sGiZ6JyoTcI/S-4VpbFCx2I/AAAAAAAABzs/bu3YyVIGrHs/s1600/hussain-sagar-lake-night.jpg',
         description: 'A picturesque lake with a famous Buddha statue.'
       },
       {
         name: 'Ramoji Film City',
-        imageUrl: 'assets/destinations/ramoji.jpg',
+        imageUrl: 'https://temples.vibhaga.com/wp-content/uploads/2020/07/ramoji-film-city-hyderabad-entryfee-timings-tour-package-header.jpg',
         description: 'The world’s largest integrated film studio complex.'
       },
       {
         name: 'Birla Mandir',
-        imageUrl: 'assets/destinations/birlamandir.jpg',
+        imageUrl: 'https://static.toiimg.com/thumb/msid-39669197,width=1200,height=900/39669197.jpg',
         description: 'A beautiful white marble temple overlooking the city.'
       },
       {
         name: 'Chowmahalla Palace',
-        imageUrl: 'assets/destinations/chowmahalla.jpg',
+        imageUrl: 'https://3.bp.blogspot.com/-KDfrjv5pAR0/WGi3UMONPyI/AAAAAAAAJCA/k7Asko5pC-MBdHRJlZJ5QOtSNZXKGEF4gCLcB/s1600/11.jpg',
         description: 'A stunning palace complex with rich heritage and architecture.'
       }
     ];

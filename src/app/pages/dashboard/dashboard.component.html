@@ -31,18 +31,10 @@
         <!-- Booking Form -->
         <div class="custom-booking-table-item">
           <div class="custom-form-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Arrival Date"
-            />
+            <input type="text" class="form-control" placeholder="Arrival Date" />
           </div>
           <div class="custom-form-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Departure Date"
-            />
+            <input type="text" class="form-control" placeholder="Departure Date" />
           </div>
           <div class="custom-form-group">
             <select class="wide">
@@ -72,10 +64,7 @@
 
   <div class="custom-carousel">
     <div class="custom-carousel-inner">
-      <div
-        class="custom-carousel-item"
-        *ngFor="let slide of carouselImages; let i = index"
-      >
+      <div class="custom-carousel-item" *ngFor="let slide of carouselImages; let i = index">
         <img [src]="slide.image" alt="{{ slide.title }}" />
         <div class="carousel-caption">
           <h5>{{ slide.title }}</h5>
@@ -94,18 +83,22 @@
   <h2 class="section-title">Top Destinations in Hyderabad</h2>
 
   <div class="destination-grid">
-    <div *ngFor="let destination of topDestinationsInHyderabad" class="destination-item">
-      <img [src]="destination.imageUrl" [alt]="destination.name" class="destination-image" />
+    <div *ngFor="let destination of topDestinationsInHyderabad; let i = index" class="destination-item">
+      <img [src]="destination.imageUrl" [alt]="destination.name" 
+            class="destination-image" />
       <div class="destination-info">
         <h3>{{ destination.name }}</h3>
         <p>{{ destination.description }}</p>
       </div>
     </div>
   </div>
+  
+
+
 
   <div class="card-container">
     <div class="card" *ngFor="let hotel of filteredHotels">
-      <app-image-carousel  [images]="hotel.images" [autoSlideInterval]="5000"></app-image-carousel>
+      <app-image-carousel [images]="hotel.images" [autoSlideInterval]="5000"></app-image-carousel>
 
 
       <div class="card-content" (click)="goToHotelDetails(hotel.id)">
