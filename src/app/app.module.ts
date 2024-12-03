@@ -20,6 +20,7 @@ import { BookingDetailsComponent } from './pages/booking-details/booking-details
 import { EditHotelComponent } from './pages/hotels/edit-hotel/edit-hotel.component';
 import { HotelsComponent } from './pages/hotels/hotels/hotels.component';
 import { ImageCarouselComponent } from './pages/components/image-carousel/image-carousel.component';
+import { CustomCardComponent } from './pages/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ImageCarouselComponent } from './pages/components/image-carousel/image-
     EditHotelComponent,
     HotelsComponent,
     ImageCarouselComponent,
+    CustomCardComponent,
    
 
   ],

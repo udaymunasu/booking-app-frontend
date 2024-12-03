@@ -98,25 +98,29 @@
 
   <div class="card-container">
     <div class="card" *ngFor="let hotel of filteredHotels">
+      <!-- Display carousel for images (separate from app-card) -->
       <app-image-carousel [images]="hotel.images" [autoSlideInterval]="5000"></app-image-carousel>
-
-
-      <div class="card-content" (click)="goToHotelDetails(hotel.id)">
-        <h3>{{ hotel?.name }}</h3>
-        <p><strong>Description:</strong> {{ hotel?.description }}</p>
-        <p><strong>Location:</strong> {{ hotel.location }}</p>
+  
+      <!-- Pass the static inputs (name, description, location) to app-card -->
+      <app-card
+        [name]="hotel.name"
+        [description]="hotel.description"
+        [location]="hotel.location"
+      >
+        <!-- Custom Content Template for the Card Body -->
         <p><strong>Price per Night:</strong> ${{ hotel.pricePerNight }}</p>
-        <p><strong>Amenities:</strong> {{ hotel?.amenities?.join(", ") }}</p>
+        <p><strong>Amenities:</strong> {{ hotel.amenities?.join(', ') }}</p>
         <p><strong>Rating:</strong> {{ hotel.rating }} / 5</p>
         <p><strong>Room Types:</strong></p>
         <ul>
           <li *ngFor="let roomType of hotel.roomTypes">
-            {{ roomType?.type }} - ${{ roomType?.price }} (Capacity:
-            {{ roomType.capacity }})
+            {{ roomType.type }} - ${{ roomType.price }} (Capacity: {{ roomType.capacity }})
           </li>
         </ul>
-        <button class="btn btn-primary">View Details</button>
-      </div>
+        <button class="btn btn-primary" (click)="goToHotelDetails(hotel.id)">View Details</button>
+      </app-card>
     </div>
   </div>
+  
+  
 </div>
